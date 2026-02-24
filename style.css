@@ -46,26 +46,20 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-
-
 .body {
     background-color: rgb(175, 175, 175);
 }
-
 .calculator_container {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .calculator_content {
     margin: 25px auto 0 auto;
-    width: 400px;
+    width: 315px;
     height: 500px;
     background-color: rgb(29, 29, 29);
     border: 1px solid black;
 }
-
 .result_box {
     display: flex;
     width: 100%;
@@ -73,7 +67,6 @@ table {
     background-color: rgb(50, 50, 50);
     border-bottom: 1px solid black;
 }
-
 .input_first_number,
 .input_operation,
 .input_second_number,
@@ -83,16 +76,14 @@ table {
     font-weight: bold;
     padding: 15px 0 0 15px;
 }
-
 .operation_content {
     margin-top: 25px;
     display: flex;
     justify-content: space-evenly;
 }
-
 .operation_content button {
     border: 1px solid black;
-    padding: 15px 30px;
+    padding: 8px 24px;
     font-weight: bold;
     font-size: 18px;
     color: white;
@@ -100,38 +91,32 @@ table {
     transition: all 0.3s ease;
     cursor: pointer;
 }
-
 .operation_content button:hover {
     background-color: rgb(50, 50, 50);
 }
-
 .operation_number {
     display: flex;
     flex-direction: column;
 }
-
 .operation_number_box_one {
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
     margin: 25px 0
 }
-
 .operation_number_box_two {
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
 }
-
 .operation_number_box_three {
     margin-top: 25px;
     display: flex;
     justify-content: center;
 }
-
 .operation_number_box_one button,
 .operation_number_box_two button,
 .operation_number_box_three button {
     border: 1px solid black;
-    padding: 15px 30px;
+    padding: 8px 24px;
     font-weight: bold;
     font-size: 18px;
     color: white;
@@ -139,7 +124,6 @@ table {
     transition: all 0.3s ease;
     cursor: pointer;
 }
-
 .operation_number_box_one button:hover,
 .operation_number_box_two button:hover,
 .operation_number_box_three button:hover {
