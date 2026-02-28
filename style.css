@@ -46,86 +46,134 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-.body {
-    background-color: rgb(175, 175, 175);
-}
-.calculator_container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.calculator_content {
-    margin: 25px auto 0 auto;
-    width: 315px;
-    height: 500px;
-    background-color: rgb(29, 29, 29);
-    border: 1px solid black;
-}
-.result_box {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    background-color: rgb(50, 50, 50);
-    border-bottom: 1px solid black;
-}
-.input_first_number,
-.input_operation,
-.input_second_number,
-.input_result {
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    padding: 15px 0 0 15px;
-}
-.operation_content {
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-evenly;
-}
-.operation_content button {
-    border: 1px solid black;
-    padding: 8px 24px;
-    font-weight: bold;
-    font-size: 18px;
-    color: white;
-    background-color: rgb(29, 29, 29);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.operation_content button:hover {
-    background-color: rgb(50, 50, 50);
-}
-.operation_number {
-    display: flex;
-    flex-direction: column;
-}
-.operation_number_box_one {
-    display: flex;
-    justify-content:space-evenly;
-    margin: 25px 0
-}
-.operation_number_box_two {
-    display: flex;
-    justify-content:space-evenly;
-}
-.operation_number_box_three {
-    margin-top: 25px;
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #0a0f0a 0%, #000000 100%);
+    font-family: "Courier New", monospace;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-.operation_number_box_one button,
-.operation_number_box_two button,
-.operation_number_box_three button {
-    border: 1px solid black;
-    padding: 8px 24px;
-    font-weight: bold;
+
+.calculator {
+    position: relative;
+}
+
+.calculator_container {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff00;
+    box-shadow: 
+        0 0 15px #00ff00,
+        inset 0 0 15px #003300;
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.result_box {
+    background: #001100;
+    border: 1px solid #00ff00;
+    padding: 15px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    color: #00ff00;
+    text-shadow: 0 0 8px #00ff00;
+    box-shadow: inset 0 0 10px #00ff00;
+}
+
+.result_box p {
+    margin: 4px 0;
     font-size: 18px;
-    color: white;
-    background-color: rgb(29, 29, 29);
-    transition: all 0.3s ease;
-    cursor: pointer;
 }
-.operation_number_box_one button:hover,
-.operation_number_box_two button:hover,
-.operation_number_box_three button:hover {
-    background-color: rgb(50, 50, 50);
+
+button {
+    background: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 12px 18px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+button:hover {
+    background: #00ff00;
+    color: #000;
+    box-shadow: 0 0 15px #00ff00;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 25px #00ff00;
+}
+
+.operation_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.operation_number_box_one,
+.operation_number_box_two,
+.operation_number_box_three {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn_clear {
+    border-color: #ff0033;
+    color: #ff0033;
+    box-shadow: 0 0 8px #ff0033;
+}
+
+.btn_clear:hover {
+    background: #ff0033;
+    color: #000;
+    box-shadow: 0 0 20px #ff0033;
+}
+
+.btn_result {
+    border-color: #00ffff;
+    color: #00ffff;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+.btn_result:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0,255,0,0.05) 0px,
+            rgba(0,255,0,0.05) 1px,
+            transparent 2px,
+            transparent 5px
+        );
+    pointer-events: none;
+    animation: matrixMove 10s linear infinite;
+}
+
+@keyframes matrixMove {
+    from { background-position: 0 0; }
+    to { background-position: 0 400px; }
 }
