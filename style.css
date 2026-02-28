@@ -49,131 +49,128 @@ table {
 
 
 
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle at center, #0a0f0a 0%, #000000 100%);
-    font-family: "Courier New", monospace;
+}
+
+:root {
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #2a2a3d;
+}
+
+body.dark {
+    --bg: #1e1e2f;
+    --card: #2a2a3d;
+    --text: #ffffff;
+}
+
+body {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background: var(--bg);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .calculator {
-    position: relative;
-}
-
-.calculator_container {
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #00ff00;
-    box-shadow: 
-        0 0 15px #00ff00,
-        inset 0 0 15px #003300;
-    border-radius: 12px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
+    width: 380px;
+    background: var(--card);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
 
 .result_box {
-    background: #001100;
-    border: 1px solid #00ff00;
-    padding: 15px;
-    margin-bottom: 20px;
-    min-height: 80px;
-    color: #00ff00;
-    text-shadow: 0 0 8px #00ff00;
-    box-shadow: inset 0 0 10px #00ff00;
+    background: var(--bg);
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 90px;
+    margin-bottom: 25px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.result_box p {
-    margin: 4px 0;
-    font-size: 18px;
+.input_first_number,
+.input_operation,
+.input_second_number {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.input_result {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.operation_content,
+.operation_number_box_one,
+.operation_number_box_two,
+.operation_number_box_three {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 button {
-    background: #000;
-    color: #00ff00;
-    border: 1px solid #00ff00;
-    padding: 12px 18px;
-    margin: 4px;
-    cursor: pointer;
+    height: 55px;
+    border: none;
+    border-radius: 14px;
     font-size: 16px;
+    font-weight: 500;
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 0 5px #00ff00;
 }
 
 button:hover {
-    background: #00ff00;
-    color: #000;
-    box-shadow: 0 0 15px #00ff00;
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 button:active {
     transform: scale(0.95);
-    box-shadow: 0 0 25px #00ff00;
 }
 
-.operation_content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.operation_number_box_one,
-.operation_number_box_two,
-.operation_number_box_three {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.btn_operation {
+    background: var(--bg);
+    color: var(--text);
 }
 
 .btn_clear {
-    border-color: #ff0033;
-    color: #ff0033;
-    box-shadow: 0 0 8px #ff0033;
+    background: #fee2e2;
+    color: #991b1b;
 }
 
-.btn_clear:hover {
-    background: #ff0033;
-    color: #000;
-    box-shadow: 0 0 20px #ff0033;
+.btn_clear_last {
+    background: #fef3c7;
+    color: #92400e;
 }
 
 .btn_result {
-    border-color: #00ffff;
-    color: #00ffff;
-    box-shadow: 0 0 8px #00ffff;
+    background: #7790c7;
+    color: var(--text);
 }
 
-.btn_result:hover {
-    background: #00ffff;
-    color: #000;
-    box-shadow: 0 0 20px #00ffff;
+.btn_theme {
+    background: #bdaaf7;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        repeating-linear-gradient(
-            to bottom,
-            rgba(0,255,0,0.05) 0px,
-            rgba(0,255,0,0.05) 1px,
-            transparent 2px,
-            transparent 5px
-        );
-    pointer-events: none;
-    animation: matrixMove 10s linear infinite;
-}
+@media (max-width: 420px) {
+    .calculator {
+        width: 95%;
+        padding: 20px;
+    }
 
-@keyframes matrixMove {
-    from { background-position: 0 0; }
-    to { background-position: 0 400px; }
+    button {
+        height: 50px;
+    }
 }

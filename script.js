@@ -16,6 +16,18 @@ buttonNumber.forEach(function(btn) {
     });
 });
 
+document.getElementById("btn_point").addEventListener("click", () => {
+    if (state === "first") {
+        if (inputFirstNumber.textContent !== "" && !inputFirstNumber.textContent.includes(".")) {
+            inputFirstNumber.textContent += ".";
+        }
+    } else if (state === "second") {
+        if (inputSecondNumber.textContent !== "" && !inputSecondNumber.textContent.includes(".")) {
+            inputSecondNumber.textContent += ".";
+        }
+    }
+});
+
 const buttonOperation = document.querySelectorAll(".btn_operation");   
 const inputOperation = document.getElementById("input_operation");
 
@@ -40,6 +52,7 @@ document.getElementById("btn_clear").addEventListener("click", function() {
 
 document.getElementById("btn_clear_last").addEventListener("click", function() {
     if (state === "first") {
+        result.textContent = "";
         inputFirstNumber.textContent = inputFirstNumber.textContent.slice(0, -1);
     } else {
         if (inputSecondNumber.textContent !== "") {
@@ -72,10 +85,27 @@ document.getElementById("btn_result").addEventListener("click",function () {
             result.textContent = Number(inputFirstNumber.textContent) * Number(inputSecondNumber.textContent);
             break;
     };
+
+    if (inputOperation.textContent === "/" && Number(inputSecondNumber.textContent) === 0) {
+        inputFirstNumber.textContent = "";
+        inputSecondNumber.textContent = "";
+        inputOperation.textContent = "";
+        result.textContent = "You can't divide by 0!";
+        result.style.color = "red";
+        result.style.fontSize = "20px";
+        state = "first";
+        blockOperation = false;
+        return;
+    };
+
     inputFirstNumber.textContent = result.textContent;
     inputSecondNumber.textContent = "";
     inputOperation.textContent = "";
     result.textContent = "";
     state = "first";
     blockOperation = false;
-}); 
+});
+
+document.getElementById("btn_theme").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
