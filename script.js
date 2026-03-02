@@ -5,7 +5,7 @@ let state = "first";
 let blockOperation = false;
 
 buttonNumber.forEach(function(btn) {
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", () => {
         if (state === "first") {
             inputFirstNumber.textContent += btn.textContent;
             result.textContent = "";
@@ -32,7 +32,7 @@ const buttonOperation = document.querySelectorAll(".btn_operation");
 const inputOperation = document.getElementById("input_operation");
 
 buttonOperation.forEach(function(btn) {
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", () => {
         if (inputFirstNumber.textContent === "" || blockOperation) {
             return;
         };
@@ -41,7 +41,7 @@ buttonOperation.forEach(function(btn) {
     });
 });
 
-document.getElementById("btn_clear").addEventListener("click", function() {
+document.getElementById("btn_clear").addEventListener("click", () => {
     inputFirstNumber.textContent = "";
     inputSecondNumber.textContent = "";
     inputOperation.textContent = "";
@@ -50,7 +50,7 @@ document.getElementById("btn_clear").addEventListener("click", function() {
     blockOperation = false;
 });
 
-document.getElementById("btn_clear_last").addEventListener("click", function() {
+document.getElementById("btn_clear_last").addEventListener("click", () => {
     if (state === "first") {
         result.textContent = "";
         inputFirstNumber.textContent = inputFirstNumber.textContent.slice(0, -1);
@@ -69,7 +69,7 @@ document.getElementById("btn_clear_last").addEventListener("click", function() {
 
 const result = document.getElementById("input_result");
 
-document.getElementById("btn_result").addEventListener("click",function () {
+document.getElementById("btn_result").addEventListener("click",() => {
     let calculator = inputOperation.textContent
     switch (calculator) {
         case '+':
